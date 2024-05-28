@@ -30,3 +30,4 @@
 /Users/charlescahill/Documents/IEX/ContosoPizza/obj/Debug/net8.0/ContosoPizza.pdb
 /Users/charlescahill/Documents/IEX/ContosoPizza/obj/Debug/net8.0/ContosoPizza.genruntimeconfig.cache
 /Users/charlescahill/Documents/IEX/ContosoPizza/obj/Debug/net8.0/ref/ContosoPizza.dll
+/Users/charlescahill/Documents/IEX/ContosoPizza/obj/Debug/net8.0/ContosoPizza.sourcelink.json
