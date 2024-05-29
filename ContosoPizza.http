@@ -1,21 +1,58 @@
 @ContosoPizza_HostAddress = http://localhost:5072
 
+#GET weatherforecast
 GET {{ContosoPizza_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+#GET all pizzas
+GET {{ContosoPizza_HostAddress}}/pizza/
+Accept: application/json
 
+###
+#GET specific pizza (id 1)
+GET {{ContosoPizza_HostAddress}}/pizza/1
+Accept: application/json
+
+###
+#GET pizza that does not exist (404 error)
+GET {{ContosoPizza_HostAddress}}/pizza/5
+Accept: application/json
+
+###
+#POST a new pizza
+POST {{ContosoPizza_HostAddress}}/pizza/
+Content-Type: application/json
+
+{
+    "name": "Hawaii",
+    "isGlutenFree": false
+}
+
+###
+#PUT (edit) an existing pizza (changing name)
+PUT {{ContosoPizza_HostAddress}}/pizza/3
+Content-Type: application/json
+
+{
+    "id": 3,
+    "name": "Hawaiian",
+    "isGlutenFree": false
+}
+
+###
+#GET method to check that pizza 3 was updated in prev method
+GET {{ContosoPizza_HostAddress}}/pizza/3
+Accept: application/json
+
+###
+#DELETE Pizze by ID (id 3)
+DELETE {{ContosoPizza_HostAddress}}/pizza/3
+
+###
+#GET all method to verify that pizza was deleted in prev method
 GET {{ContosoPizza_HostAddress}}/pizza/
 Accept: application/json
 
 ###
 
-GET {{ContosoPizza_HostAddress}}/pizza/1
-Accept: application/json
-
-###
-
-GET {{ContosoPizza_HostAddress}}/pizza/5
-Accept: application/json
-
-###

@@ -32,9 +32,46 @@ public class PizzaController : ControllerBase
 
 
     // POST action
-    
+    [HttpPost]
+    public IActionResult Create(Pizza pizza)
+    {            
+        // This code saves the pizza and returns a result
+        PizzaService.Add(pizza);
+        return CreatedAtAction(nameof(Get), new { id = pizza.Id }, pizza);
+    }
+
 
     // PUT action
+    [HttpPut("{id}")]
+    public IActionResult Update(int id, Pizza pizza)
+    {
+        // This code updates the pizza and returns a result
+        if (id != pizza.Id)
+        return BadRequest();
+           
+        var existingPizza = PizzaService.Get(id);
+        if(existingPizza is null)
+            return NotFound();
+    
+        PizzaService.Update(pizza);           
+    
+        return NoContent();
+    }
+
 
     // DELETE action
+    [HttpDelete("{id}")]
+    public IActionResult Delete(int id)
+    {
+        // This code deletes the pizza and returns a result
+        var pizza = PizzaService.Get(id);
+   
+        if (pizza is null)
+            return NotFound();
+        
+        PizzaService.Delete(id);
+    
+        return NoContent();
+    }
+
 }
